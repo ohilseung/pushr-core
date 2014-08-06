@@ -1,14 +1,16 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+# require 'bundler/setup'
+# Bundler.require
+
 environment = ARGV[0]
 ENV['RAILS_ENV'] = environment
-
-require 'rubygems'
-require 'bundler/setup'
-Bundler.require
 
 require 'optparse'
 require 'pushr/core'
 require 'pushr/daemon'
+
+load 'config/environment.rb'
 
 settings = Pushr::Daemon::Settings.new
 banner = 'Usage: pushr <Rails environment> [options]'
