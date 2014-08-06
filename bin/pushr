@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+environment = ARGV[0]
+ENV['RAILS_ENV'] = environment
+
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require
@@ -8,7 +11,7 @@ require 'pushr/core'
 require 'pushr/daemon'
 
 settings = Pushr::Daemon::Settings.new
-banner = 'Usage: pushr [options]'
+banner = 'Usage: pushr <Rails environment> [options]'
 connection = {}
 ARGV.options do |opts|
   opts.banner = banner
@@ -78,5 +81,4 @@ if ENV['AIRBRAKE_API_KEY']
     airbrake.secure  = airbrake.port == 443
   end
 end
-
 Pushr::Daemon.start(settings)

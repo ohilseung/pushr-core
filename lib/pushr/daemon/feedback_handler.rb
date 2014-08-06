@@ -10,7 +10,7 @@ module Pushr
 
       def start
         return unless @processor_path
-        require "#{Dir.pwd}/#{@processor_path}"
+        require "#{ENV['PWD']}/#{@processor_path}"
         @processor = Pushr::FeedbackProcessor.new
 
         Thread.new do
