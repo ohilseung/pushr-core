@@ -113,7 +113,7 @@ certificate you exported.
 
 To start the daemon:
 
-    bundle exec pushr <options>
+    bundle exec pushr <environment> <options>
 
 Where `<options>` can be:
 
